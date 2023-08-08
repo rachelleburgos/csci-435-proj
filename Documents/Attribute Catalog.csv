@@ -1,0 +1,44 @@
+Attributes,Domain,Type,Table/Entity,Is Repeating Group,Is Atomic,PK,FK
+country_id,Any integer value,int,Country,FALSE,TRUE,TRUE,TRUE
+country_code,All character strings with a maximum length of 4 characters,varchar(4),Country,FALSE,TRUE,FALSE,FALSE
+country_name,All character strings with a maximum length of 32 characters,varchar(32),Country,FALSE,TRUE,FALSE,FALSE
+country_population,Any positive integer value,unsigned int,Country,FALSE,TRUE,FALSE,FALSE
+country_currency,All character strings with a maximum length of 10 characters,varchar(10),Country,FALSE,TRUE,FALSE,FALSE
+country_description,All character strings with a maximum length of 500 characters,varchar(500),Country,FALSE,TRUE,FALSE,FALSE
+city_id,Any integer value,int,City,FALSE,TRUE,TRUE,TRUE
+city_name,All character strings with a maximum length of 32 characters,varchar(32),City,FALSE,TRUE,FALSE,FALSE
+city_region,All character strings with a maximum length of 32 characters,varchar(32),City,FALSE,TRUE,FALSE,FALSE
+city_population,Any positive integer value,unsigned int,City,FALSE,TRUE,FALSE,FALSE
+city_description,All character strings with a maximum length of 500 characters,varchar(500),City,FALSE,TRUE,FALSE,FALSE
+attraction_id,Any integer value,int,Attraction,FALSE,TRUE,TRUE,FALSE
+attraction_name,All character strings with a maximum length of 32 characters,varchar(32),Attraction,FALSE,TRUE,FALSE,FALSE
+attraction_description,All character strings with a maximum length of 500 characters,varchar(500),Attraction,FALSE,TRUE,FALSE,FALSE
+attraction_rating,"Any positive integer value in the range (0, 5]",unsigned smallint,Attraction,FALSE,TRUE,FALSE,FALSE
+attraction_photo_url,All character strings with a maximum length of 500 characters,varchar(500),Attraction,FALSE,TRUE,FALSE,FALSE
+accommodation_id,Any integer value,int,Accommodation,FALSE,TRUE,TRUE,TRUE
+accommodation_name,All character strings with a maximum length of 32 characters,varchar(32),Accommodation,FALSE,TRUE,FALSE,FALSE
+accommodation_address,All character strings with a maximum length of 500 characters,varchar(500),Accommodation,FALSE,TRUE,FALSE,FALSE
+accommodation_rating,"Any positive integer value in the range (0, 5]",unsigned smallint,Accommodation,FALSE,TRUE,FALSE,FALSE
+accommodation_average_price,Any numeric value with two decimal places,"decimal(10,2)",Accommodation,FALSE,TRUE,FALSE,FALSE
+accommodation_website_url,All character strings with a maximum length of 500 characters,varchar(500),Accommodation,FALSE,TRUE,FALSE,FALSE
+restaurant_id,Any integer value,int,Restaurant,FALSE,TRUE,TRUE,FALSE
+restaurant_name,All character strings with a maximum length of 32 characters,varchar(32),Restaurant,FALSE,TRUE,FALSE,FALSE
+restaurant_address,All character strings with a maximum length of 500 characters,varchar(500),Restaurant,FALSE,TRUE,FALSE,FALSE
+restaurant_cuisine_type,All character strings with a maximum length of 32 characters,varchar(32),Restaurant,FALSE,TRUE,FALSE,FALSE
+restaurant_rating,"Any positive integer value in the range (0, 5]",unsigned smallint,Restaurant,FALSE,TRUE,FALSE,FALSE
+restaurant_website_url,All character strings with a maximum length of 500 characters,varchar(500),Restaurant,FALSE,TRUE,FALSE,FALSE
+transportation_id,Any integer value,int,Transportation,FALSE,TRUE,TRUE,TRUE
+transportation_mode,All character strings with a maximum length of 32 characters,varchar(32),Transportation,FALSE,TRUE,FALSE,FALSE
+transportation_details,All character strings with a maximum length of 500 characters,varchar(500),Transportation,FALSE,TRUE,FALSE,FALSE
+transportation_average_price,Any numeric value with two decimal places,"decimal(10,2)",Transportation,FALSE,TRUE,FALSE,FALSE
+transportation_website_url,All character strings with a maximum length of 500 characters,varchar(500),Transportation,FALSE,TRUE,FALSE,FALSE
+safety_tip_id,Any integer value,int,Safety Tips,FALSE,TRUE,TRUE,TRUE
+safety_tip,All character strings with a maximum length of 500 characters,varchar(500),Safety Tips,FALSE,TRUE,FALSE,FALSE
+user_id,Any integer value,int,User,FALSE,TRUE,TRUE,TRUE
+user_name,All character strings with a maximum length of 32 characters,varchar(32),User,FALSE,TRUE,FALSE,FALSE
+user_password (hashed),All character strings with a maximum length of 32 characters,varchar(256),User,FALSE,TRUE,FALSE,FALSE
+user_email,"All character strings with a maximum length of 32 characters in the format: REGEX ^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$",varchar(32),User,FALSE,TRUE,FALSE,FALSE
+user_profile_image_url,All character strings with a maximum length of 500 characters,varchar(500),User,FALSE,TRUE,FALSE,FALSE
+review_id,Any integer value,int,Reviews,FALSE,TRUE,TRUE,TRUE
+review_rating,"Any positive integer value in the range (0, 5]",unsigned smallint,Reviews,FALSE,TRUE,FALSE,FALSE
+review_text,All character strings with a maximum length of 500 characters,varchar(500),Reviews,FALSE,TRUE,FALSE,FALSE
