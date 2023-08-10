@@ -1,3 +1,4 @@
+-- CSCI 495 Summer 2023
 -- Team 2: Rachelle Burgos, Bahi Berk Gulay
 
 CREATE TABLE Unnormalized (
@@ -35,5 +36,7 @@ CREATE TABLE Unnormalized (
     user_email VARCHAR(32),
     user_profile_image_url VARCHAR(500),
     review_rating SMALLINT,
-    review_text VARCHAR(500)
+    review_title VARCHAR(32),
+    review_text VARCHAR(500),
+    review_type VARCHAR(32)
 );

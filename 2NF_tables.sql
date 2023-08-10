@@ -81,8 +81,12 @@ CREATE TABLE Review (
     review_id INT AUTO_INCREMENT PRIMARY KEY,
     user_fk INT,
     attraction_fk INT,
+    restaurant_fk INT,
+    accommodation_fk INT,
     FOREIGN KEY (user_fk) REFERENCES User(user_id),
     FOREIGN KEY (attraction_fk) REFERENCES Attraction(attraction_id),
     review_rating SMALLINT,
-    review_text VARCHAR(500)
+    review_title VARCHAR(32),
+    review_text VARCHAR(500),
+    review_type VARCHAR(32)
 );
