@@ -140,54 +140,52 @@ JOIN City c ON u.city_name = c.city_name
 WHERE u.safety_tip IS NOT NULL 
 AND u.city_name IS NOT NULL;
 
--- Attraction Review Type
-INSERT INTO Review (user_fk, attraction_fk, review_rating, review_title, review_text, review_type)
-SELECT 
-    u.user_id, 
-    a.attraction_id, 
-    un.review_rating, 
-    un.review_title, 
-    un.review_text, 
-    'Attraction'
-FROM Unnormalized un
-JOIN User u ON un.user_name = u.user_name
-JOIN Attraction a ON un.attraction_name = a.attraction_name
-WHERE un.user_name IS NOT NULL 
-AND un.attraction_name IS NOT NULL 
-AND un.review_text IS NOT NULL 
-AND un.review_title IS NOT NULL;
 
--- Restaurant Review Type
+-- Inserting Restaurant Reviews
 INSERT INTO Review (user_fk, restaurant_fk, review_rating, review_title, review_text, review_type)
 SELECT 
-    u.user_id, 
-    r.restaurant_id, 
-    un.review_rating, 
-    un.review_title, 
-    un.review_text, 
+    u.user_id,
+    r.restaurant_id,
+    un.review_rating,
+    un.review_title,
+    un.review_text,
     'Restaurant'
 FROM Unnormalized un
-JOIN User u ON un.user_name = u.user_name
-JOIN Restaurant r ON un.restaurant_name = r.restaurant_name
-WHERE un.user_name IS NOT NULL 
-AND un.restaurant_name IS NOT NULL 
+LEFT JOIN User u ON un.user_name = u.user_name
+LEFT JOIN Restaurant r ON un.restaurant_name = r.restaurant_name
+WHERE un.review_type = 'Restaurant'
 AND un.review_text IS NOT NULL 
 AND un.review_title IS NOT NULL;
 
--- Accommodation Review Type
+-- Inserting Accommodation Reviews
 INSERT INTO Review (user_fk, accommodation_fk, review_rating, review_title, review_text, review_type)
 SELECT 
-    u.user_id, 
-    ac.accommodation_id, 
-    un.review_rating, 
-    un.review_title, 
-    un.review_text, 
+    u.user_id,
+    ac.accommodation_id,
+    un.review_rating,
+    un.review_title,
+    un.review_text,
     'Accommodation'
 FROM Unnormalized un
-JOIN User u ON un.user_name = u.user_name
-JOIN Accommodation ac ON un.accommodation_name = ac.accommodation_name
-WHERE un.user_name IS NOT NULL 
-AND un.accommodation_name IS NOT NULL 
+LEFT JOIN User u ON un.user_name = u.user_name
+LEFT JOIN Accommodation ac ON un.accommodation_name = ac.accommodation_name
+WHERE un.review_type = 'Accommodation'
+AND un.review_text IS NOT NULL 
+AND un.review_title IS NOT NULL;
+
+-- Inserting Attraction Reviews
+INSERT INTO Review (user_fk, attraction_fk, review_rating, review_title, review_text, review_type)
+SELECT 
+    u.user_id,
+    a.attraction_id,
+    un.review_rating,
+    un.review_title,
+    un.review_text,
+    'Attraction'
+FROM Unnormalized un
+LEFT JOIN User u ON un.user_name = u.user_name
+LEFT JOIN Attraction a ON un.attraction_name = a.attraction_name
+WHERE un.review_type = 'Attraction'
 AND un.review_text IS NOT NULL 
 AND un.review_title IS NOT NULL;
 
@@ -201,4 +199,11 @@ SELECT DISTINCT
 FROM Unnormalized
 WHERE user_name IS NOT NULL 
     AND user_password IS NOT NULL 
-    AND user_email IS NOT NULL;
+    AND user_email IS NOT NULL
+    AND NOT EXISTS (
+        SELECT 1 
+        FROM User 
+        WHERE user_name = Unnormalized.user_name 
+              AND user_email = Unnormalized.user_email 
+              AND user_password = Unnormalized.user_password
+); 

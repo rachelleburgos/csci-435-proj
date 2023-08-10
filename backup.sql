@@ -1,6 +1,7 @@
--- MySQL dump 10.13  Distrib 8.0.33, for macos13.3 (x86_64)
+Terminal close -- query aborted
+.33, for macos13.3 (x86_64)
 --
--- Host: localhost    Database: project
+-- Host: localhost    Database: presentation
 -- ------------------------------------------------------
 -- Server version	8.0.33
 
@@ -497,4 +498,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-08-10 16:23:37
+-- Dump completed on 2023-08-10 16:55:36
